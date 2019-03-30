@@ -1,10 +1,11 @@
 #!/bin/bash
 # Update Emby
-echo "Installing latest Emby"
+echo "Updating Emby Stable"
+sudo systemctl stop emby-server
 cd /tmp
 wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.0.2.0/emby-server-deb_4.0.2.0_amd64.deb
 dpkg -i emby-server-deb_4.0.2.0_amd64.deb
-systemctl stop emby-server
+sudo systemctl stop emby-server
 
 # Setting up GDrive Transcodes
 echo "Fixing transcoding"
@@ -24,11 +25,11 @@ wget https://raw.githubusercontent.com/Thomvh/emby-strm/master/config/config.cfg
 
 # Start Emby
 echo "Starting Emby"
-systemctl start emby-server
+sudo systemctl start emby-server
 
 # Setup Scripts
-echo "Install cronjobs"
-crontab -l | { cat; echo "*/1 * * * * cd "/u01/GoogleDrive-VideoStream_extra/emby helpers/";perl monitor_videostream.pl -p 9988 -d /u01/Python-GoogleDrive-VideoStream/ -l videostream"; } | crontab -
-crontab -l | { cat; echo "*/1 * * * * cd "/u01/GoogleDrive-VideoStream_extra/emby helpers/";perl monitor_emby.pl -p 8096 -i emby-server -l emby"; } | crontab -
+# echo "Install cronjobs"
+# crontab -l | { cat; echo "*/1 * * * * cd "/u01/GoogleDrive-VideoStream_extra/emby helpers/";perl monitor_videostream.pl -p 9988 -d /u01/Python-GoogleDrive-VideoStream/ -l videostream"; } | crontab -
+# crontab -l | { cat; echo "*/1 * * * * cd "/u01/GoogleDrive-VideoStream_extra/emby helpers/";perl monitor_emby.pl -p 8096 -i emby-server -l emby"; } | crontab -
 
 exit 0

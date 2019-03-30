@@ -1,0 +1,1 @@
+find /var/lib/emby/transcoding-temp/ -type f -mmin +60 -delete
