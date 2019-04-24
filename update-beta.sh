@@ -4,8 +4,8 @@
 echo "Updating to latest Emby Beta"
 sudo systemctl stop emby-server
 cd /tmp
-wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.1.0.17/emby-server-deb_4.1.0.17_amd64.deb
-dpkg -i emby-server-deb_4.1.0.17_amd64.deb
+wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.2.0.1/emby-server-deb_4.2.0.1_amd64.deb
+dpkg -i emby-server-deb_4.2.0.1_amd64.deb
 sudo systemctl stop emby-server
 
 # Restore GDrive Transcodes
