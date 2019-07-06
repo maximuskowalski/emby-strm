@@ -23,7 +23,7 @@ tar -xvf ffmpeg-release-amd64-static.tar.xz
 # Install Emby
 echo "Installing latest Emby Beta"
 cd /tmp
-wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.1.0.17/emby-server-deb_4.1.0.17_amd64.deb
+wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.2.0.24/emby-server-deb_4.2.0.24_amd64.deb
 dpkg -i emby-server-deb_4.1.0.17_amd64.deb
 systemctl stop emby-server
 
